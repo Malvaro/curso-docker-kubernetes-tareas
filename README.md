@@ -1,6 +1,6 @@
 # Tareas - Curso Docker & Kubernetes
 
-**Estudiante:** [Tu Nombre]
+**Estudiante:** Alvaro Chambi
 **Curso:** [Docker & Kubernetes - i-Quattro](https://www.i-quattro.com/product-page/dok-kub-001)
 
 ## Sobre este repositorio

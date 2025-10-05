@@ -41,6 +41,10 @@ Digest: sha256:ca375ab8ef2cb8bede6b1bb97a943cce7f0a304d5459c05235b47bc2dccb98cd
 Status: Downloaded newer image for httpd:latest
 98b17e174b1ff5900e033d534ef491ed1a9c592063f90b5952f973f16deeb6f9
 ```
+**Screenshot:**
+
+![Container corriendo](screenshots/docker-run.png)
+
 
 ### 2. Verificar que está corriendo
 Para verificar que el Container esta corriendo se hara listara los contenedores iniciados
@@ -51,7 +55,7 @@ Que muestra lo siguiente:
 
 **Screenshot:**
 
-![Container corriendo](screenshots/docker-ps-verificacion.png)
+![Container Verificacion](screenshots/docker-ps-verificacion.png)
 
 Tambien se revisa los logs del Container:
 ```bash
@@ -59,13 +63,13 @@ docker logs mi-apache
 ```
 **Screenshot:**
 
-![Container corriendo](screenshots/docker-logs.png)
+![Container logs](screenshots/docker-logs.png)
 
 ### 3. Acceder desde el navegador
 
 Se accede a `http://localhost:8081` y obtuve:
 
-![Container funcionando](screenshots/httpd-localhost.png)
+![Localhost](screenshots/httpd-localhost.png)
 
 Con todo esto se verifico que el Container se levanto.
 
@@ -76,7 +80,7 @@ Detener el container
 docker stop 98b
 ```
 Se uso los tres (3) primeros caracteres del ID del container dentro del comando.
-![Container funcionando](screenshots/docker-stop.png)
+![Container detenido](screenshots/docker-stop.png)
 
 Verificar container detenido
 ```bash
@@ -89,7 +93,7 @@ docker ps -a
 
 La ejecuciòn de los dos comandos se observa en: 
 
-![Container funcionando](screenshots/docker-ps-ps-a.png)
+![Container verificacion todos](screenshots/docker-ps-ps-a.png)
 
 
 Eliminar Container
@@ -102,7 +106,7 @@ docker ps -a
 ```
 
 Se uso los tres (3) primeros caracteres del ID del container dentro del comando, se verifica la eliminacion del Container con el comando ps -a esto para listar todos los contenedores.
-![Container funcionando](screenshots/docker-rm-ps-a.png)
+![Container eliminado](screenshots/docker-rm-ps-a.png)
 
 ## Conclusiones
 

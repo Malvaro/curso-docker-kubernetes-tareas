@@ -14,7 +14,7 @@ Nombre del container: mi-apache
 Verifica accediendo a http://localhost:8081
 
 ## Desarrollo
-Antes de iniciar se verifica todos los contenedores (iniciado y detenidos)
+Antes de iniciar se verifica todos los Containers (iniciado y detenidos)
 
 docker ps -a
 
@@ -43,7 +43,7 @@ Status: Downloaded newer image for httpd:latest
 ```
 
 ### 2. Verificar que está corriendo
-Para verificar que el contenedore esta corriendo se hara listara los contenedores iniciados
+Para verificar que el Container esta corriendo se hara listara los contenedores iniciados
 ```bash
 docker ps
 ```
@@ -51,29 +51,59 @@ Que muestra lo siguiente:
 
 **Screenshot:**
 
-![Container corriendo](screenshots/docker-ps-verificacion.PNG)
+![Container corriendo](screenshots/docker-ps-verificacion.png)
 
-Tambien se revisa los logs del contenedor:
+Tambien se revisa los logs del Container:
 ```bash
 docker logs mi-apache
 ```
 **Screenshot:**
 
-![Container corriendo](screenshots/docker-logs.PNG)
+![Container corriendo](screenshots/docker-logs.png)
 
 ### 3. Acceder desde el navegador
 
 Se accede a `http://localhost:8081` y obtuve:
 
-![Nginx funcionando](screenshots/httpd-localhost.png)
+![Container funcionando](screenshots/httpd-localhost.png)
 
-Con todo esto se verifico que el contenedor se levanto.
+Con todo esto se verifico que el Container se levanto.
 
 ### 4. Limpieza
-Detén el container
-Elimínalo
-Verifica que ya no existe
+En este apartado se procedera con la limpieza:
+Detener el container
+```bash
+docker stop 98b
+```
+Se uso los tres (3) primeros caracteres del ID del container dentro del comando.
+![Container funcionando](screenshots/docker-stop.png)
+
+Verificar container detenido
+```bash
+docker ps
+```
+Verificar container detenido
+```bash
+docker ps -a
+```
+
+La ejecuciòn de los dos comandos se observa en: 
+
+![Container funcionando](screenshots/docker-ps-ps-a.png)
+
+
+Eliminar Container
+```bash
+docker rm 98b
+```
+Verificar eliminacion del Container
+```bash
+docker ps -a
+```
+
+Se uso los tres (3) primeros caracteres del ID del container dentro del comando, se verifica la eliminacion del Container con el comando ps -a esto para listar todos los contenedores.
+![Container funcionando](screenshots/docker-rm-ps-a.png)
 
 ## Conclusiones
 
-Aprendí a ejecutar containers en segundo plano y mapear puertos. Tuve una dificultad inicial con el puerto 8080 ocupado, lo resolví usando el puerto 8081 en su lugar.
+En este ejercicio se aplico: inicio de un contenedor en segundo plano, con un puerto y nombre definifo (docker run -d -p --name), listar contenedores activos (docker ps), todos los contenedores activos e inactivos (docker ps -a), revisar logs del contenedor (docker logs), detener (docker stop) y eliminar el contenedor (docker rm)

@@ -2,9 +2,19 @@
 
 ## Objetivo
 
-Desplegar un servidor web con nginx usando Docker.
+Practicar el despliegue de diferentes tipos de aplicaciones usando docker run y documentar el proceso de cada una.
+
+## Opcion seleccionada para desplegar
+Opción 1: Apache HTTP Server (httpd)
+Despliega un servidor web Apache:
+
+Imagen: httpd
+Puerto: 8081
+Nombre del container: mi-apache
+Verifica accediendo a http://localhost:8081
 
 ## Desarrollo
+
 
 ### 1. Ejecutar el container
 
@@ -36,6 +46,11 @@ Accedí a `http://localhost:8080` y obtuve:
 ![Nginx funcionando](screenshots/nginx-browser.png)
 
 [... continúa con el resto]
+
+### 4. Limpieza
+Detén el container
+Elimínalo
+Verifica que ya no existe
 
 ## Conclusiones
 

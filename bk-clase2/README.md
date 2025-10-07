@@ -117,23 +117,21 @@ View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux
 
 
 ## Testing
-
+**Docker Images**
 ![Docker Images](screenshots/docker-images.png)
-![Container Running](screenshots/docker-ps.png)
+**Container running**
+![Container Running](screenshots/docker-ps.png
+**Curl**)
 ![API Response](screenshots/docker-curl.png)
 
 ## Docker Hub
 
-**URL:** https://hub.docker.com/r/miusuario/tasks-api
+**URL:** https://hub.docker.com/r/alvarochambir/my-app-python
 
-![Docker Hub](screenshots/dockerhub.png)
+![Docker Hub](screenshots/docker-hub.png)
 
-## Optimizaciones
-
-- Multi-stage build: redujo de 320MB a 145MB
-- Usuario non-root
-- .dockerignore excluye node_modules
 
 ## Conclusiones
+El multistage nos permite separar instalaciones de librerias, de la ejecucion de la app como tal, al igual que el gitlab/github, se puede tener un repositorio de las imagenes que creamos, Dockerfile es una forma de customizar la creacion de la imagen, y por tanto permite instacianar tantos contenedores como se vean convenientes.
 
-Aprendí a optimizar imágenes...
+Por un problema con repositorio, se nombra esta carpeta bk-clase2, y no clase2, por el factor tiempo no se llega arreglar, mas adelante se lo hara.

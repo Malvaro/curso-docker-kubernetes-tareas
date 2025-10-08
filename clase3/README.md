@@ -10,7 +10,8 @@ Uso de docker compose para crear dos contenedores con dos servicios, conectados 
 ## Stack
 
 - **App:** HTML (Estatico)
-- **Base de datos:** PostgreSQL
+- **Base de datos:** PostgreSQL 
+- **GUI Base de Datos** PGADMIN
 
 ## Ejecución
 
@@ -97,30 +98,126 @@ PGADMIN: http://localhost:5050
 
 ## Screenshots
 ### Git Clone
-![git clone](screenshots/services.png)
+![git clone](screenshots/git-clone.png)
 
 ### Acceso a Tarea 3
-![git clone](screenshots/services.png)
-
-### Docker Compose
-![docker compose](screenshots/services.png)
+![acceso tarea 3](screenshots/acceso-tarea3.png)
 
 ### Levantar servicios
-![docker ps](screenshots/services.png)
+![servicios levantados](screenshots/docker-compose.png)
+
+### Lista servicios
+![Lista de servicios](screenshots/docker-ps.png)
 
 ### Nginx
-![git clone](screenshots/services.png)
+![index](screenshots/index.png)
 
 ### PGAdmin
-![git clone](screenshots/services.png)
+![PGAdmin](screenshots/pgadmin.png)
 
 ### Configuraciòn PgAdmin
-![git clone](screenshots/services.png)
+![git clone](screenshots/configurar-conexion.png)
+
+### acceso-bd
+![git clone](screenshots/acceso-bd.png)
+
+### Lista volumenes
+![Lista de volumenes](screenshots/docker-volume.png)
+
+### Lista de red
+![Lista de red](screenshots/docker-network.png)
+
+### Docker compose down
+![Lcompose down](screenshots/compose-down.png)
+
+### Docker compose down
+![Compose up](screenshots/compose-up.png)
+
+### Docker compose down
+![Lista volumnes 2](screenshots/docker-volume-2.png)
 
 
-6. Conceptos Aplicados
 ## Conceptos Docker
 
 - Docker Compose con 3 servicios: Nginx, PostgreSQL y Pgadmin
-- Red custom: `app-network`
-- Volumen: `db-data` (persistencia)
+- Red custom: `frontend` , `backend`
+- Volumen: `postgres-data` (persistencia) (clase3_postgres-data)
+
+
+## Anexos
+Docker compose:
+```
+services:
+  web:
+    image: nginx:alpine
+    container_name: nginx_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - db
+
+
+  db:
+    image: postgres:16-alpine
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: curso
+      POSTGRES_PASSWORD: clase3
+      POSTGRES_DB: tarea
+    ports:
+      - "5432:5432"
+    volumes:
+      # Volumen para datos persistentes
+      - postgres-data:/var/lib/postgresql/data
+      # Script de inicialización
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - backend
+
+  pgadmin:
+    image: dpage/pgadmin4:8.6
+    container_name: pgadmin_web
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: alvaro.chambi@endesyc.bo
+      PGADMIN_DEFAULT_PASSWORD: clase3
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    networks:
+      - backend
+
+# ============================================
+# REDES
+# ============================================
+networks:
+  # Red para frontend
+  frontend:
+    driver: bridge
+
+  # Red para backend (con configuración personalizada)
+  backend:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+# ============================================
+# VOLÚMENES
+# ============================================
+volumes:
+  # Volumen para logs de la app
+  web-logs:
+    driver: local
+
+  # Volumen para datos de PostgreSQL
+  postgres-data:
+    driver: local
+```

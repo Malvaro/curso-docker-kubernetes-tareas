@@ -71,7 +71,7 @@ Salida:
 ## PRUEBA
 Acceder a:
 
-NGINX: http://localhost:3000
+NGINX: http://localhost:8080
 PGADMIN: http://localhost:5050 
 
 ## Verificación
@@ -104,7 +104,7 @@ PGADMIN: http://localhost:5050
 ![acceso tarea 3](screenshots/acceso-tarea3.png)
 
 ### Levantar servicios
-![servicios levantados](screenshots/docker-compose.png)
+![servicios levantados](screenshots/docker-compose-d.png)
 
 ### Lista servicios
 ![Lista de servicios](screenshots/docker-ps.png)

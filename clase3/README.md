@@ -1,18 +1,17 @@
-1. Encabezado
-# APP-3 - NGINX - PostgreSQL
+
+# APP-3 - NGINX - PostgreSQL - PGADMIN
 
 **Curso:** Docker & Kubernetes - Clase 3
 **Estudiante:** Alvaro Chambi
 
 Uso de docker compose para crear dos contenedores con dos servicios, conectados en red, y con un volumen persistente.
 
-2. Stack Tecnológico
+
 ## Stack
 
 - **App:** HTML (Estatico)
 - **Base de datos:** PostgreSQL
 
-3. Cómo Ejecutar
 ## Ejecución
 
 1. Clonar:
@@ -68,42 +67,60 @@ Salida:
 
 
 
-### 4. Cómo Probar
-NGINX: http://localhost:3000
+## PRUEBA
+Acceder a:
 
+NGINX: http://localhost:3000
 PGADMIN: http://localhost:5050 
 
 ## Verificación
 
-   4.1. Servicios corriendo:
+   1. Servicios corriendo:
+
       ```bash
       docker compose ps
       ```
       Salida: 
 
-   4.2 Acceder:
+   2. Acceder:
+
       Nginx: http://localhost:8080
+   
       PgAdmin: http://localhost:5050  
 
-   4.3 Verificar volumen persiste:
-   ```bash
-   docker compose down
-   docker compose up -d
-   docker volume ls  # debe seguir existiendo
-   ```
-### 5. Capturas de Pantalla
+   3. Verificar volumen persiste:
+      ```bash
+      docker compose down
+      docker compose up -d
+      docker volume ls  # debe seguir existiendo
+      ```
 
 ## Screenshots
+### Git Clone
+![git clone](screenshots/services.png)
 
-### Servicios corriendo
-![compose ps](screenshots/services.png)
+### Acceso a Tarea 3
+![git clone](screenshots/services.png)
 
-### API funcionando
-![API](screenshots/api.png)
+### Docker Compose
+![docker compose](screenshots/services.png)
+
+### Levantar servicios
+![docker ps](screenshots/services.png)
+
+### Nginx
+![git clone](screenshots/services.png)
+
+### PGAdmin
+![git clone](screenshots/services.png)
+
+### Configuraciòn PgAdmin
+![git clone](screenshots/services.png)
+
+
 6. Conceptos Aplicados
 ## Conceptos Docker
 
-- Docker Compose con 2 servicios
+- Docker Compose con 3 servicios: Nginx, PostgreSQL y Pgadmin
 - Red custom: `app-network`
 - Volumen: `db-data` (persistencia)
-- Variables de entorno
